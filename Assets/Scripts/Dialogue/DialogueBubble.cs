@@ -47,6 +47,8 @@ public class DialogueBubble : MonoBehaviour
     {
         aud = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+
+        gameObject.SetActive(false);
     }
 
 
