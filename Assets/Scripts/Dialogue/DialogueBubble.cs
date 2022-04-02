@@ -26,8 +26,8 @@ public class DialogueBubble : MonoBehaviour
     }
 
 
-    Sprite[] loadedIcons;
-    string[] loadedDialogue;
+
+    List<Dialogue> dloglines; //each contains a line, sound effect id, and talksprite id.
     
 
     public Image dialogueImage;
@@ -48,7 +48,7 @@ public class DialogueBubble : MonoBehaviour
         aud = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
 
-        gameObject.SetActive(false);
+        DialogueBoxParent.SetActive(false);
     }
 
 
@@ -78,28 +78,41 @@ public class DialogueBubble : MonoBehaviour
 
     IEnumerator LoopDialogue()
     {
-        for(int i = 0; i < loadedDialogue.Length; i++)
+        if(dloglines == null)
+        {
+            Debug.LogError("dloglines is null!");
+        }
+
+        for(int i = 0; i < dloglines.Count; i++)
         {
             //set icon here
-            yield return DrawText(loadedDialogue[i]);
+            yield return DrawText(dloglines[i]);
         }
 
         ExitDialogue();
     }
 
-    IEnumerator DrawText(string dlog)
+    IEnumerator DrawText(Dialogue dlog)
     {
+        string line = dlog.line;
+        Sprite icon = StoryManager.Instance.spriteAtlas[dlog.iconID];
+        AudioClip clip = StoryManager.Instance.sfxAtlas[dlog.sfxID];
+
+        dialogueImage.sprite = icon;
+        aud.clip = clip;
+
+
         dialogueText.text = "";
         string curr = "";
-        for(int i = 0; i < dlog.Length; i++)
+        for(int i = 0; i < line.Length; i++)
         {
-            curr += dlog[i];
+            curr += line[i];
 
             dialogueText.text = curr;
 
             if (skipToEnd)
             {
-                curr = dlog;
+                curr = line;
                 dialogueText.text = curr;
                 break;
             }
@@ -132,13 +145,8 @@ public class DialogueBubble : MonoBehaviour
         DialogueBoxParent.SetActive(false);
     }
 
-
-
-
-    public void LoadDialogue(string[] dialogue, Sprite[] icons, AudioClip textSound)
+    public void LoadDialogue(List<Dialogue> lines)
     {
-        loadedDialogue = dialogue;
-        loadedIcons = icons;
-        aud.clip = textSound;
+        dloglines = lines;
     }
 }
