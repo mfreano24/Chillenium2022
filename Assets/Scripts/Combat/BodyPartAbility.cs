@@ -1,34 +1,64 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyPartAbility : MonoBehaviour
+[System.Serializable]
+public class BodyPartAbility
 {
+    public string name;
+    public Sprite partIcon;
+
     public float maxChargeTime;
     [HideInInspector]
     public float currentChargeTime;
     [Range(0, 2)]
-    public int abilityCount;
-    public bool isPlayer;
 
-    List<AbilityAction> abilityList;
+    [HideInInspector]
+    public bool isPlayer;
+    int abilityIndex;
+
+
+    public List<AbilityAction> abilityList;
+
     // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
+        foreach (AbilityAction abilityAction in abilityList)
+        {
+            abilityAction.parentAbility = this;
+            abilityAction.isPlayerOwned = true;
+        }
+
         if (isPlayer)
         {
-            ActionPanel.instance.AddAction(this);
+            abilityIndex = ActionPanel.instance.AddAction(this);
         }
     }
 
     // Update is called once per frame
-    void Update()
+    public void AbilityUpdate(float speedMod)
     {
         if (currentChargeTime < maxChargeTime)
         {
-            currentChargeTime += Time.deltaTime;
-            maxChargeTime = Mathf.Clamp(maxChargeTime, 0, currentChargeTime);
+            currentChargeTime += Time.deltaTime * (1f + speedMod);
+            currentChargeTime = Mathf.Clamp(currentChargeTime, 0, maxChargeTime);
         }
-
     }
+
+    internal int GetRandomAbility()
+    {
+        return UnityEngine.Random.Range(0,abilityList.Count);
+    }
+
+    public bool IsCharged() 
+    {
+        return currentChargeTime >= maxChargeTime; 
+    }
+
+    internal float GetChargeTimeLeft()
+    {
+        return maxChargeTime - currentChargeTime;
+    }
+
 }

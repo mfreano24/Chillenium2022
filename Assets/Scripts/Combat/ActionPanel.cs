@@ -6,7 +6,8 @@ public class ActionPanel : MonoBehaviour
 {
     public static ActionPanel instance;
     List<BodyPartAbility> abilityList;
-    GameObject actionPanelPrefab;
+    public GameObject actionPanelPrefab;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,15 +18,15 @@ public class ActionPanel : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-    }
+    {    }
 
     public int AddAction( BodyPartAbility bodyPartAbility) 
     {
 
         int id = abilityList.Count;
         abilityList.Add(bodyPartAbility);
+        GameObject instantiatedPrefab = Instantiate(actionPanelPrefab, this.transform);
+        instantiatedPrefab.GetComponent<AttackUIElement>().Populate(bodyPartAbility);
         return id;
 
 
