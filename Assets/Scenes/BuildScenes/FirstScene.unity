@@ -710,7 +710,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScenes:
   - sceneID: IntroScene
-    startScene: 0
+    startScene: 1
+    nextScene: 
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: 
+      spriteAtlas: []
+  spriteAtlas: []
 --- !u!4 &1598169910
 Transform:
   m_ObjectHideFlags: 0

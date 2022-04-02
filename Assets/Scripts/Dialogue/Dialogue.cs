@@ -8,5 +8,5 @@ public class Dialogue
     public int iconID;
     public int sfxID;
     public string line;
-    public List<Sprite> spriteAtlas;
+
 }
