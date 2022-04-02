@@ -375,7 +375,7 @@ MonoBehaviour:
   attachLM:
     serializedVersion: 2
     m_Bits: 64
-  associatedPrefab: {fileID: 9082965939986721160, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
+  associatedPrefab: {fileID: 8760651359370933835, guid: c38d7450818e7464aa32195f523a4eb2, type: 3}
 --- !u!223 &412757440
 Canvas:
   m_ObjectHideFlags: 0
@@ -949,6 +949,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1095594968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9082965941572027611, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
+  m_PrefabInstance: {fileID: 1584338524277137107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1095594970
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095594968}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!145 &1095594972
+SpringJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095594968}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 3.46, y: 4.486732, z: 1.87}
+  serializedVersion: 2
+  m_Spring: 10
+  m_Damper: 0.2
+  m_MinDistance: 0
+  m_MaxDistance: 0
+  m_Tolerance: 0.025
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1101942032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 0.1
   creatureTransform: {fileID: 7778171858576226135}
-  src: {fileID: 4186557936379359400}
+  src: {fileID: 0}
   ConfirmSelection: 0
   AreYouSureMenu: {fileID: 1837104077}
 --- !u!4 &1798515914
@@ -1619,17 +1664,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
---- !u!114 &4186557936379359400 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3451190241736175227, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
-  m_PrefabInstance: {fileID: 1584338524277137107}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe654222d9715e24da93694aab32acc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7778171858576226135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9082965939986721156, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
