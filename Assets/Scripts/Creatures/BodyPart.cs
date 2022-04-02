@@ -9,7 +9,7 @@ public class BodyPart : MonoBehaviour
 
     
     public bool isSource;
-
+    public bool isPlayer;
 
 
 
@@ -39,6 +39,8 @@ public class BodyPart : MonoBehaviour
 
     CreatureManager.PartType thisPartType;
 
+    //Stored Ability
+    public BodyPartAbility bodyPartAbility;
     public CreatureManager Creature
     {
         get
@@ -112,7 +114,22 @@ public class BodyPart : MonoBehaviour
             creature = GetComponent<CreatureManager>();
             depth = 0;
             creature.parts.Add(this);
+
+            if (isPlayer)
+            {
+                GameManager.playerSource = this;
+            }
+            else
+            {
+                GameManager.enemySource = this;
+            }
         }
+
+        if (!isPlayer) 
+        {
+            GameManager.enemySource.Creature.AddNewPartToCollection(this);
+        }
+
     }
 
     void InitializeNameToPart()
@@ -157,6 +174,7 @@ public class BodyPart : MonoBehaviour
 
         creature.AddNewPartToCollection(newPart);
         newPart.Depth = depth + 1;
+        newPart.isPlayer = isPlayer;
 
     }
 
@@ -168,4 +186,5 @@ public class BodyPart : MonoBehaviour
         nameToPart[attachTo].Depth = -1;
         nameToPart[attachTo] = null;
     }
+
 }

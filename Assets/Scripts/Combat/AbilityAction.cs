@@ -24,10 +24,10 @@ public class AbilityAction
         DefenseUp,
         ArmorUp,
         ParryHit,
-        PsychicHaze,
+        //PsychicHaze,
         SpeedCharge,
         SlowCharge,
-        GhostlyAssistance
+        //GhostlyAssistance
 
     }
     public enum ActionTarget
@@ -75,16 +75,16 @@ public class AbilityAction
             case ActionType.ParryHit:
                 ActivateParry(valueOne);
                 break;
-            case ActionType.PsychicHaze:
-                break;
+            //case ActionType.PsychicHaze:
+            //    break;
             case ActionType.SpeedCharge:
                 SpeedModSelf(valueOne, valueTwo);
                 break;
             case ActionType.SlowCharge:
                 SpeedModEnemy(valueOne, valueTwo);
                 break;
-            case ActionType.GhostlyAssistance:
-                break;
+            //case ActionType.GhostlyAssistance:
+            //    break;
             case ActionType.ArmorUp:
                 AddArmor(valueOne);
                 break;
@@ -113,10 +113,10 @@ public class AbilityAction
         target.ActivateParry(parryWindow);
     }
 
-    private void AddArmor(float valueOne)
+    private void AddArmor(float armor)
     {
         CombatActorManager target = PickTarget(ActionTarget.Self);
-        target.AddArmor(valueOne);
+        target.AddArmor(armor);
     }
 
     private void DefenseUp(float damageModifier, float modifierTime)
@@ -134,7 +134,7 @@ public class AbilityAction
     void DamageEnemy(float damage)
     {
         CombatActorManager target = PickTarget(ActionTarget.Enemy);
-
+        Debug.Log(target.name + " is dealt " + damage);
         target.Damage(damage);
 
     }

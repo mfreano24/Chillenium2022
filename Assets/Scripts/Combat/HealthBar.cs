@@ -9,16 +9,21 @@ public class HealthBar : MonoBehaviour
     public Image healthBar;
     public Image armorBar;
     public bool isPlayer;
-    CombatActorManager creature;
-    private void Start()
+    public CombatActorManager creature;
+    bool isInitialized;
+
+    private void Awake()
     {
-        creature = isPlayer ? GameManager.instance.player : GameManager.instance.enemy;
+
     }
     // Update is called once per frame
     void Update()
     {
+        if(creature!= null)
+        {
+            healthBar.fillAmount = Mathf.Clamp(creature.displayHealth / creature.maxHealth, 0, 1f);
+            armorBar.fillAmount = Mathf.Clamp(creature.actualArmor / creature.maxHealth, 0, 1f);
+        }
 
-        healthBar.fillAmount =Mathf.Clamp( creature.displayHealth / creature.maxHealth,0,1f);
-        armorBar.fillAmount = Mathf.Clamp(creature.actualArmor / creature.maxHealth, 0, 1f);
     }
 }

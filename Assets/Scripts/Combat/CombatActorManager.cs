@@ -9,8 +9,9 @@ public class CombatActorManager : MonoBehaviour
     public List<BodyPartAbility> bodyPartAbilities;
     public float maxHealth;
     public float actualHealth;
+    [HideInInspector]
     public float displayHealth;
-
+    [HideInInspector]
     public float actualArmor;
 
     public float healthAnimationSpeed;
@@ -21,11 +22,29 @@ public class CombatActorManager : MonoBehaviour
     int parryActive;
     int psychicHazes;
     float chargeSpeedMod;
+
+    bool isInitialized;
+
+    private void Awake()
+    {
+        GameManager.combatStart += Init;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    void Init()
     {
         if (isPlayer)
         {
+            GameManager.instance.player = this;
+            HealthBarDirectory.instance.playerHealthBar.creature = this;
+            //Load body parts
+            bodyPartAbilities = new List<BodyPartAbility>();
+            
+            foreach (BodyPart bodypart in GameManager.playerSource.Creature.parts) 
+            {
+                bodyPartAbilities.Add(bodypart.bodyPartAbility);
+            }
+
             foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
             {
                 bodyPartAbility.isPlayer = true;
@@ -35,32 +54,47 @@ public class CombatActorManager : MonoBehaviour
         }
         else
         {
+            GameManager.instance.enemy = this;
+
+            HealthBarDirectory.instance.enemyHealthBar.creature = this;
+
+            foreach (BodyPart bodypart in GameManager.enemySource.Creature.parts)
+            {
+                bodyPartAbilities.Add(bodypart.bodyPartAbility);
+            }
+            
             SetAIAbility();
             nextAction = new int();
+            
         }
-
+       
+        actualHealth = maxHealth;
         displayHealth = actualHealth;
+        isInitialized = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
+        if (isInitialized)
         {
-
-            bodyPartAbility.AbilityUpdate(chargeSpeedMod);
-        }
-        if (!isPlayer)
-        {
-            if (nextAbility != null)
+            foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
             {
-                if (nextAbility.IsCharged())
+
+                bodyPartAbility.AbilityUpdate(chargeSpeedMod);
+            }
+            if (!isPlayer)
+            {
+                if (nextAbility != null)
                 {
-                    UseQueuedAIAbility();
+                    if (nextAbility.IsCharged())
+                    {
+                        UseQueuedAIAbility();
+                    }
                 }
             }
+            UpdateHealth();
         }
-        UpdateHealth();
     }
 
     private void UpdateHealth()
@@ -130,6 +164,8 @@ public class CombatActorManager : MonoBehaviour
 
         float damageToDo = (damage * (1f + damageBoost));
 
+
+
         if (actualArmor > 0)
         {
 
@@ -144,6 +180,7 @@ public class CombatActorManager : MonoBehaviour
                 damageToDo = 0;
             }
         }
+
 
         actualHealth -= (damageToDo);
         actualHealth = Mathf.Clamp(actualHealth, 0, maxHealth);
