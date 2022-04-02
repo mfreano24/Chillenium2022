@@ -34,6 +34,8 @@ public class DialogueBubble : MonoBehaviour
     public Text dialogueText;
     AudioSource aud;
 
+    Animator anim;
+
     public GameObject DialogueBoxParent;
 
     
@@ -44,6 +46,7 @@ public class DialogueBubble : MonoBehaviour
     private void Start()
     {
         aud = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -66,6 +69,7 @@ public class DialogueBubble : MonoBehaviour
     public void PlayDialogue()
     {
         DialogueBoxParent.SetActive(true);
+        anim.Play("DialogueBoxEnter");
 
         StartCoroutine(LoopDialogue());
     }
@@ -115,6 +119,14 @@ public class DialogueBubble : MonoBehaviour
 
     public void ExitDialogue()
     {
+        anim.Play("DialogueBoxExit");
+
+        StartCoroutine(WaitToDisable());
+    }
+
+    IEnumerator WaitToDisable()
+    {
+        yield return new WaitForSeconds(1.0f);
         DialogueBoxParent.SetActive(false);
     }
 
