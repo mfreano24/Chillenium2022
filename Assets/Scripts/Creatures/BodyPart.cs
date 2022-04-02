@@ -84,12 +84,16 @@ public class BodyPart : MonoBehaviour
         //draw the "attachment points" locally
         Gizmos.color = Color.green;
 
-        Gizmos.DrawWireSphere(headAttachmentPoint.position, 0.05f);
-        Gizmos.DrawWireSphere(tailAttachmentPoint.position, 0.05f);
-        Gizmos.DrawWireSphere(lArmAttachmentPoint.position, 0.05f);
-        Gizmos.DrawWireSphere(rArmAttachmentPoint.position, 0.05f);
-        Gizmos.DrawWireSphere(lLegAttachmentPoint.position, 0.05f);
-        Gizmos.DrawWireSphere(rLegAttachmentPoint.position, 0.05f);
+        Gizmos.DrawWireSphere(headAttachmentPoint.position, 1f);
+        Gizmos.DrawWireSphere(tailAttachmentPoint.position, 1f);
+        Gizmos.DrawWireSphere(lArmAttachmentPoint.position, 1f);
+        Gizmos.DrawWireSphere(rArmAttachmentPoint.position, 1f);
+        if (!isSource)
+        {
+            Gizmos.DrawWireSphere(lLegAttachmentPoint.position, 1f);
+            Gizmos.DrawWireSphere(rLegAttachmentPoint.position, 1f);
+        }
+        
 
     }
 
@@ -107,6 +111,7 @@ public class BodyPart : MonoBehaviour
         {
             creature = GetComponent<CreatureManager>();
             depth = 0;
+            creature.parts.Add(this);
         }
     }
 
@@ -116,8 +121,12 @@ public class BodyPart : MonoBehaviour
         nameToPart.Add("tail", tail);
         nameToPart.Add("lArm", lArm);
         nameToPart.Add("rArm", rArm);
-        nameToPart.Add("lLeg", lLeg);
-        nameToPart.Add("rLeg", rLeg);
+        if (!isSource)
+        {
+            nameToPart.Add("lLeg", lLeg);
+            nameToPart.Add("rLeg", rLeg);
+        }
+        
 
         ///////
 
@@ -125,8 +134,12 @@ public class BodyPart : MonoBehaviour
         localPartPosition.Add("tail", tailAttachmentPoint);
         localPartPosition.Add("lArm", lArmAttachmentPoint);
         localPartPosition.Add("rArm", rArmAttachmentPoint);
-        localPartPosition.Add("lLeg", lLegAttachmentPoint);
-        localPartPosition.Add("rLeg", rLegAttachmentPoint);
+        if (!isSource)
+        {
+            localPartPosition.Add("lLeg", lLegAttachmentPoint);
+            localPartPosition.Add("rLeg", rLegAttachmentPoint);
+        }
+        
     }
 
     private void Update()
@@ -134,27 +147,16 @@ public class BodyPart : MonoBehaviour
 
     }
 
-    public void AttachNewBodyPart(string attachTo, BodyPart newPart)
+    public void AttachNewBodyPart(Transform attachTo, BodyPart newPart)
     {
         //newPart = pass in the part wanting to be attached to this creature
         //attachTo = pass in the name of the part we're attaching to
-        if (nameToPart[attachTo] != null)
-        {
-            Debug.Log("there's something already attached to that part - maybe handle this?");
-            //if theres something there maybe hit an "are you sure you want to replace this?"
-        }
-        else
-        {
-            
-            newPart.transform.parent = localPartPosition[attachTo];
-            newPart.transform.localPosition = Vector3.zero;
+        newPart.transform.parent = attachTo;
+        newPart.transform.localPosition = Vector3.zero;
+        newPart.transform.localRotation = Quaternion.identity;
 
-            creature.AddNewPartToCollection(newPart);
-            newPart.Depth = depth + 1;
-
-
-
-        }
+        creature.AddNewPartToCollection(newPart);
+        newPart.Depth = depth + 1;
 
     }
 
