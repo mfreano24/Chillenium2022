@@ -4,10 +4,9 @@ using UnityEngine;
 public class BodyPart : MonoBehaviour
 {
     //public bool isBase; //this can be used to determine if this body part is allowed to have attachments to it.
-    public enum PartType
-    {
-        Head, Tail, LArm, RArm, LLeg, RLeg
-    }
+    
+
+
     
     public bool isSource;
 
@@ -38,17 +37,7 @@ public class BodyPart : MonoBehaviour
 
     int depth;
 
-    public int Depth
-    {
-        get
-        {
-            return depth;
-        }
-        set
-        {
-            depth = value;
-        }
-    }
+    CreatureManager.PartType thisPartType;
 
     public CreatureManager Creature
     {
@@ -61,6 +50,32 @@ public class BodyPart : MonoBehaviour
             creature = value;
         }
     }
+
+    public int Depth
+    {
+        get
+        {
+            return depth;
+        }
+        set
+        {
+            depth = value;
+        }
+    }
+
+    public CreatureManager.PartType BodyPartType
+    {
+        get
+        {
+            return thisPartType;
+        }
+        set
+        {
+            thisPartType = value;
+        }
+    }
+
+    
 
     //body part's RPG stats and actions should be a separate class i think
 
