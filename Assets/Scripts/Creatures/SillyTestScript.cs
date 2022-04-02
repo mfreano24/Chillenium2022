@@ -18,9 +18,9 @@ public class SillyTestScript : MonoBehaviour
 
     private void Start()
     {
-        //DialogueBubble.Instance.LoadDialogue(lines, icons, clip);
+        DialogueBubble.Instance.LoadDialogue(lines, icons, clip);
 
-        //DialogueBubble.Instance.PlayDialogue();
+        DialogueBubble.Instance.PlayDialogue();
     }
 
 }
