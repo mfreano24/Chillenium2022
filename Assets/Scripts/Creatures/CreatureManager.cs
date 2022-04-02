@@ -8,10 +8,6 @@ public class CreatureManager : MonoBehaviour
     [HideInInspector] public List<BodyPart> parts;
     List<bool> visited; //for use in graph searches
 
-    
-
-    
-
 
     BodyPart source;
 
