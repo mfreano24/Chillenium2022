@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 0
   isPlayer: 1
+  libraryIndex: 1
   headAttachmentPoint: {fileID: 5570099034156144210}
   tailAttachmentPoint: {fileID: 5570099034055133746}
   lArmAttachmentPoint: {fileID: 5570099034490449772}
@@ -205,13 +206,13 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: BearHead
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+    partIcon: {fileID: 21300000, guid: 431074f7b6cd56f4f935e9ccfbd9ec5e, type: 3}
     maxChargeTime: 10
     currentChargeTime: 0
     isPlayer: 0
     abilityList:
     - name: Cotton Stuffing
-      actionIcon: {fileID: 21300000, guid: 6a69211561f689e45899f4fee2419b1d, type: 3}
+      actionIcon: {fileID: 21300000, guid: fe45ffcd05ccff74088d36b20f2ab0cf, type: 3}
       parentAbility:
         name: 
         partIcon: {fileID: 0}
@@ -220,10 +221,10 @@ MonoBehaviour:
         isPlayer: 0
         abilityList: []
       isPlayerOwned: 0
-      actionType: 9
-      valueOne: 4
-      valueTwo: 0
-      valueThree: 0
+      actionType: 2
+      valueOne: 10
+      valueTwo: 1
+      valueThree: 5
   selfPrefab: {fileID: 5570099032825247271}
 --- !u!1 &5570099034055133745
 GameObject:

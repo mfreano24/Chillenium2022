@@ -9,7 +9,7 @@ public class GiftSelectChoice : MonoBehaviour
     public TextMeshProUGUI textDispaly;
     GameObject giftChoice;
     BodyPart bodyPart;
-
+    int libraryIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,8 @@ public class GiftSelectChoice : MonoBehaviour
     {
         textDispaly.text = bodyPart.bodyPartAbility.name;
         StaticValues.limbPrefabName = bodyPart.selfPrefab.name;
+        giftChoice = bodyPart.selfPrefab;
+        libraryIndex = bodyPart.libraryIndex;
         this.bodyPart = bodyPart;
     }
 
@@ -37,6 +39,8 @@ public class GiftSelectChoice : MonoBehaviour
         Debug.Log(StaticValues.limbPrefabName);
 
         GameManager.instance.bodyAbilities.Add(bodyPart.bodyPartAbility);
+        GameManager.instance.limRewardLibraryIndex = libraryIndex;
+
         GameManager.instance.GoToCharacterBuildScreen();
     }
 }

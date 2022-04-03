@@ -378,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 0
   isPlayer: 1
+  libraryIndex: 3
   headAttachmentPoint: {fileID: 6190769768148109483}
   tailAttachmentPoint: {fileID: 0}
   lArmAttachmentPoint: {fileID: 6190769767812203563}

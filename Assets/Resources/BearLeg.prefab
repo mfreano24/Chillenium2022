@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 0
   isPlayer: 1
+  libraryIndex: 2
   headAttachmentPoint: {fileID: 0}
   tailAttachmentPoint: {fileID: 6251623915481256692}
   lArmAttachmentPoint: {fileID: 6251623916677317355}
@@ -180,13 +181,13 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: BearLeg
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+    partIcon: {fileID: 21300000, guid: ce19fd5f3dcd1d44da31c0f5a34b70ed, type: 3}
     maxChargeTime: 18
     currentChargeTime: 0
     isPlayer: 0
     abilityList:
     - name: Hibernation
-      actionIcon: {fileID: 21300000, guid: 6a69211561f689e45899f4fee2419b1d, type: 3}
+      actionIcon: {fileID: 21300000, guid: 18e5daf62c662624abde3fe430dc8d76, type: 3}
       parentAbility:
         name: 
         partIcon: {fileID: 0}
@@ -196,9 +197,9 @@ MonoBehaviour:
         abilityList: []
       isPlayerOwned: 0
       actionType: 3
-      valueOne: 4
-      valueTwo: 0
-      valueThree: 0
+      valueOne: 10
+      valueTwo: 2
+      valueThree: 10
   selfPrefab: {fileID: 6251623915432132480}
 --- !u!1 &6251623915481256691
 GameObject:

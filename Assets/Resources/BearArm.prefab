@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 0
   isPlayer: 1
+  libraryIndex: 0
   headAttachmentPoint: {fileID: 8973096835420505157}
   tailAttachmentPoint: {fileID: 8973096835144036602}
   lArmAttachmentPoint: {fileID: 8973096836291321183}
@@ -538,13 +539,13 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: BearClaw
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
-    maxChargeTime: 10
+    partIcon: {fileID: 21300000, guid: 8e22c079ead291e44ba75a0659c5fe09, type: 3}
+    maxChargeTime: 7
     currentChargeTime: 0
     isPlayer: 0
     abilityList:
     - name: Machine Wash Cold
-      actionIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+      actionIcon: {fileID: 21300000, guid: f67bdec3fc783574c99f70bf99628d5a, type: 3}
       parentAbility:
         name: 
         partIcon: {fileID: 0}
@@ -556,6 +557,20 @@ MonoBehaviour:
       actionType: 6
       valueOne: 30
       valueTwo: 0
+      valueThree: 0
+    - name: Ghost's Touch
+      actionIcon: {fileID: 21300000, guid: 11cdf1f36c440944ba16e356e429257a, type: 3}
+      parentAbility:
+        name: 
+        partIcon: {fileID: 0}
+        maxChargeTime: 0
+        currentChargeTime: 0
+        isPlayer: 0
+        abilityList: []
+      isPlayerOwned: 0
+      actionType: 9
+      valueOne: 0.8
+      valueTwo: 10
       valueThree: 0
   selfPrefab: {fileID: 8973096836374040087}
 --- !u!1001 &8973096834330395584

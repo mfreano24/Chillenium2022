@@ -592,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 1
   isPlayer: 0
+  libraryIndex: 10
   headAttachmentPoint: {fileID: 5557687575357758819}
   tailAttachmentPoint: {fileID: 5557687574254680329}
   lArmAttachmentPoint: {fileID: 5557687573673880858}
@@ -599,12 +600,13 @@ MonoBehaviour:
   lLegAttachmentPoint: {fileID: 0}
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
-    name: 
+    name: Mogus Spawn
     partIcon: {fileID: 0}
     maxChargeTime: 0
     currentChargeTime: 0
     isPlayer: 0
     abilityList: []
+  selfPrefab: {fileID: 0}
 --- !u!114 &2074159675496527820
 MonoBehaviour:
   m_ObjectHideFlags: 0

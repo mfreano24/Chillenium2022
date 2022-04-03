@@ -65,7 +65,7 @@ public class DraggableLimb : MonoBehaviour
             {
                 //we have a transform to use as our attachTo.
                 
-                CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint, NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]);
+                CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint,FindObjectOfType<Library>().limbs[GameManager.instance.limRewardLibraryIndex]/*NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]*/);
 
                 CharacterEditLogic.Instance.CameraSnapToFit();
 

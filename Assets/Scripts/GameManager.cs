@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
 
     public List<BodyPartAbility> bodyAbilities;
-
+    public int limRewardLibraryIndex;
     public enum GameState
     {
         PreCombat,

@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class BodyPart : MonoBehaviour
 {
     //public bool isBase; //this can be used to determine if this body part is allowed to have attachments to it.
+   
+    
     public static BodyPart player;
     
     public bool isSource;
     public bool isPlayer;
 
-
+    public int libraryIndex;
 
     //NOTE: THESE SHOULD ONLY BE UTILIZED IF "isBase" IS TRUE
     BodyPart head;
