@@ -2717,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -3395,6 +3395,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 3632365706329461747, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8510947448707369464, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3509,6 +3513,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957590964592627344, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
       propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957590964592627344, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957590964592627344, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
+      propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
