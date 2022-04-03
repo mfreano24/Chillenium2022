@@ -57,6 +57,11 @@ public class CharacterEditLogic : MonoBehaviour
         AreYouSureMenu.SetActive(false);
 
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("PlacementHighlight");
+
+        if (MusicManager.Instance)
+        {
+            MusicManager.Instance.SetBattleMode(false);
+        }
     }
 
 
@@ -118,7 +123,7 @@ public class CharacterEditLogic : MonoBehaviour
 
         float adjust = Mathf.Max(xSize, ySize);
 
-        Camera.main.orthographicSize = adjust;
+        Camera.main.orthographicSize = 8;
     }
 
     public void ProceedCallback(GameObject limbObj)
@@ -140,12 +145,24 @@ public class CharacterEditLogic : MonoBehaviour
 
         yield return new WaitUntil(() => ConfirmSelection);
 
+        
+
         //TODO:move to next scene from here
     }
 
     public void SelectYes()
     {
         ConfirmSelection = true;
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlaySFX("click");
+        }
+
+        if (MusicManager.Instance)
+        {
+            MusicManager.Instance.SetBattleMode(true);
+        }
+
         GameManager.instance.GotoCombatNoPlayer();
 
     }

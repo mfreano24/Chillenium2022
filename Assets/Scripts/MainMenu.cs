@@ -9,10 +9,23 @@ public class MainMenu : MonoBehaviour
     {
         //scene transition to first scene
         SceneManager.LoadScene("CombatScene");
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlaySFX("click");
+        }
+
+        if (MusicManager.Instance)
+        {
+            MusicManager.Instance.SetBattleMode(true);
+        }
     }
 
     public void QuitButton()
     {
         Application.Quit();
+        if (AudioManager.Instance)
+        {
+            AudioManager.Instance.PlaySFX("click");
+        }
     }
 }
