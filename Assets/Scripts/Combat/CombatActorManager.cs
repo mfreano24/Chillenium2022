@@ -44,6 +44,7 @@ public class CombatActorManager : MonoBehaviour
             {
                 bodyPartAbilities.Add(bodypart.bodyPartAbility);
             }
+            bodyPartAbilities.Add(GameManager.playerSource.bodyPartAbility);
 
             foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
             {

@@ -125,7 +125,7 @@ public class BodyPart : MonoBehaviour
             }
         }
 
-        if (!isPlayer) 
+        if (!isPlayer && ! isSource) 
         {
             GameManager.enemySource.Creature.AddNewPartToCollection(this);
         }
