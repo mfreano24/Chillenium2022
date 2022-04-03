@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         //scene transition to first scene
-
+        SceneManager.LoadScene("CombatScene");
     }
 
     public void QuitButton()
