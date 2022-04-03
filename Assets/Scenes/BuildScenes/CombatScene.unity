@@ -3503,6 +3503,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 328
       objectReference: {fileID: 0}
+    - target: {fileID: 8510947450419970469, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
+      propertyPath: m_Spacing
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8957590964592627344, guid: a88d74f1c7159f444bcdce24176b98b7, type: 3}
       propertyPath: m_Alpha
       value: 1
