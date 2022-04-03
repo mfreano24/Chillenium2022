@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BodyPart : MonoBehaviour
 {
@@ -120,10 +121,7 @@ public class BodyPart : MonoBehaviour
 
     private void Awake()
     {
-        if (GameManager.playerSource != null && GameManager.playerSource != this)
-        {
-            DestroyImmediate(this);
-        }
+        
     }
     private void Start()
     {
@@ -132,6 +130,8 @@ public class BodyPart : MonoBehaviour
         
         InitializeNameToPart();
 
+
+        
 
         if (isSource)
         {
@@ -142,14 +142,49 @@ public class BodyPart : MonoBehaviour
             if (isPlayer)
             {
 
-                if (player == null) 
+                if (GameManager.playerSource == null)
                 {
                     GameManager.playerSource = this;
                     player = this;
-                    DontDestroyOnLoad(this);
-                }else
+                    DontDestroyOnLoad(gameObject);
+                    GameManager.instance.AddFunctionToSceneLoadEvent(OnSceneLoaded);
+                }
+                else if(GameManager.playerSource != this)
                 {
-                    Destroy(this);
+                    Destroy(gameObject);
+                }
+
+            }
+            else
+            {
+                GameManager.enemySource = this;
+            }
+        }
+
+
+    }
+
+
+    public void OnSceneLoaded()
+    {
+        if (isSource)
+        {
+            creature = GetComponent<CreatureManager>();
+            depth = 0;
+            creature.parts.Add(this);
+
+            if (isPlayer)
+            {
+
+                if (GameManager.playerSource == null)
+                {
+                    GameManager.playerSource = this;
+                    player = this;
+                    DontDestroyOnLoad(gameObject);
+                }
+                else if (GameManager.playerSource != this)
+                {
+                    Destroy(gameObject);
                 }
 
             }
@@ -162,9 +197,9 @@ public class BodyPart : MonoBehaviour
         {
             //GameManager.enemySource.Creature.AddNewPartToCollection(this);
         }
-
-
     }
+
+
 
 
 
@@ -208,6 +243,15 @@ public class BodyPart : MonoBehaviour
     {
         //newPart = pass in the part wanting to be attached to this creature
         //attachTo = pass in the name of the part we're attaching to
+        if(newPart == null)
+        {
+            Debug.Log("new part is null?");
+        }
+
+        if(attachTo == null)
+        {
+            Debug.Log("attach to is null?");
+        }
         newPart.transform.parent = attachTo;
         newPart.transform.localPosition = Vector3.zero;
         newPart.transform.localRotation = Quaternion.identity;

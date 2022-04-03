@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("already a gamemanager in here, deleting this one!");
             Destroy(this);
         }
-        else 
+        else
         {
 
             instance = this;
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!stateProgressing) 
+        if (!stateProgressing)
         {
             switch (gameState)
             {
@@ -68,7 +67,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-  IEnumerator StartCombat() 
+    public void AddFunctionToSceneLoadEvent(Action pass)
+    {
+        SceneManager.sceneLoaded += delegate { pass(); };
+    }
+
+    IEnumerator StartCombat()
     {
 
         stateProgressing = true;
@@ -105,7 +109,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GoToLoseScreen(2.5f));
     }
 
-    IEnumerator GoToLoseScreen(float delay) 
+    IEnumerator GoToLoseScreen(float delay)
     {
         yield return new WaitForSeconds(delay);
         gameState = GameState.LostGame;
@@ -123,7 +127,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void GoToCharacterBuildScreen() 
+    public void GoToCharacterBuildScreen()
     {
         StartCoroutine(GoToBuildScreen(2.5f));
         FindObjectOfType<CombatAnimator>().CallFadeOut();
@@ -136,11 +140,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    internal void GotoCombatNoPlayer()
+    {
+        SceneManager.LoadScene(3);
+        gameState = GameState.PreCombat;
+    }
+
     internal void GotoCombat()
     {
         SceneManager.LoadScene(0);
         gameState = GameState.PreCombat;
-        stateProgressing = true;
-        throw new NotImplementedException();
+
     }
 }

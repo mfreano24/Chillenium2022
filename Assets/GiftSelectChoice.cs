@@ -24,15 +24,15 @@ public class GiftSelectChoice : MonoBehaviour
     public void Populate(BodyPart bodyPart)
     {
         textDispaly.text = bodyPart.bodyPartAbility.name;
-        giftChoice = bodyPart.selfPrefab;
+        StaticValues.limbPrefabName = bodyPart.selfPrefab.name;
     }
 
     public void AcceptGift()
     {
-        GameManager.instance.limbRewardPrefab = giftChoice;
+        //StaticValues.limbPrefabName = giftChoice.name;
         GameManager.playerSource.gameObject.transform.parent = null;
         DontDestroyOnLoad(GameManager.playerSource.gameObject);
-        Debug.Log(giftChoice.name);
+        Debug.Log(StaticValues.limbPrefabName);
         GameManager.instance.GoToCharacterBuildScreen();
     }
 }

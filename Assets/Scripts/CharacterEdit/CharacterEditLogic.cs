@@ -52,6 +52,8 @@ public class CharacterEditLogic : MonoBehaviour
         src = GameObject.FindGameObjectWithTag("Source").GetComponent<CreatureManager>(); //sorry
         //im not actually that sorry
 
+        creatureTransform = src.transform;
+
         AreYouSureMenu.SetActive(false);
 
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("PlacementHighlight");
@@ -144,7 +146,7 @@ public class CharacterEditLogic : MonoBehaviour
     public void SelectYes()
     {
         ConfirmSelection = true;
-        GameManager.instance.GotoCombat();
+        GameManager.instance.GotoCombatNoPlayer();
 
     }
     public void SelectNo()

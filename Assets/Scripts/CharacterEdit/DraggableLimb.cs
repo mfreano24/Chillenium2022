@@ -23,6 +23,8 @@ public class DraggableLimb : MonoBehaviour
 
     public Transform debugAttach;
 
+    bool newLimbFound = false;
+
 
 
     private void OnDrawGizmos()
@@ -36,17 +38,11 @@ public class DraggableLimb : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
-        if (GameManager.instance != null)
-            if (GameManager.instance.limbRewardPrefab != null)
-            {
-                {
-                    associatedPrefab = GameManager.instance.limbRewardPrefab;
-                }
-            }
     }
 
     private void Update()
     {
+        
 
         mousePos = Input.mousePosition;
 
@@ -68,7 +64,8 @@ public class DraggableLimb : MonoBehaviour
             if (currSelectedAttachmentPoint != null)
             {
                 //we have a transform to use as our attachTo.
-                CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint, associatedPrefab);
+                
+                CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint, NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]);
 
                 CharacterEditLogic.Instance.CameraSnapToFit();
 

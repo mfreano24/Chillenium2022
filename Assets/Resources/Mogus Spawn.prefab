@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 9082965939986721157}
   - component: {fileID: 3451190241736175227}
   m_Layer: 0
-  m_Name: SourceCreature
+  m_Name: Mogus Spawn
   m_TagString: Source
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

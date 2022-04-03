@@ -405,6 +405,7 @@ MonoBehaviour:
       valueOne: 3
       valueTwo: 0
       valueThree: 0
+  selfPrefab: {fileID: 6190769768766938564}
 --- !u!1 &9014040929272720339
 GameObject:
   m_ObjectHideFlags: 0
