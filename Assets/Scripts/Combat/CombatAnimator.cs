@@ -20,12 +20,12 @@ public class CombatAnimator : MonoBehaviour
     {
 
         GameManager.playerSource.transform.parent = monsterAnimatorOne.transform;
-        
+
         Debug.Log("Here goes");
         Debug.Log(GameManager.enemySource.name);
         GameManager.enemySource.transform.parent = monsterAnimatorTwo.transform;
         Debug.Log("Nothing");
-        
+
         GameManager.playerSource.transform.localPosition = Vector3.zero;
 
         GameManager.enemySource.transform.localPosition = Vector3.zero;
@@ -33,10 +33,24 @@ public class CombatAnimator : MonoBehaviour
         GameManager.playerSource.transform.localRotation = Quaternion.identity;
 
         GameManager.enemySource.transform.localRotation = Quaternion.identity;
-        monsterAnimatorOne.SetInteger("ChooseIntro", Random.Range(1, 6));
-        monsterAnimatorTwo.SetInteger("ChooseIntro", Random.Range(1, 6));
+        int introOne = Random.Range(1, 6);
+        monsterAnimatorOne.SetInteger("ChooseIntro", introOne);
+        int introTwo = Random.Range(1, 6);
+        monsterAnimatorTwo.SetInteger("ChooseIntro", introTwo);
         transitionAnimator.SetInteger("ChooseIntro", 1);
+        
+        if (introOne == 4 || introTwo == 4)
+        {
+            AudioManager.Instance.PlaySFX("foot_steps");
+        }
+
         yield return new WaitForSeconds(3.5f);
+
+        if (introOne == 1 || introTwo == 1)
+        {
+            AudioManager.Instance.PlaySFX("foot_steps");
+        }
+
         combatUIFadeIn.SetTrigger("FadeIn");
         yield return null;
     }
@@ -61,6 +75,7 @@ public class CombatAnimator : MonoBehaviour
     internal void CallWinAnimations()
     {
         StartCoroutine(WinAnimations());
+        AudioManager.Instance.PlaySFX("paperflutter");
     }
 
     internal void CallFadeOut()

@@ -7,8 +7,8 @@ public class Quit : MonoBehaviour
 
     public void QuitMe() 
     {
-
+        AudioManager.Instance.PlaySFX("click");
         Application.Quit();
-    
+
     }
 }
