@@ -64,6 +64,11 @@ public class DraggableLimb : MonoBehaviour
             if (currSelectedAttachmentPoint != null)
             {
                 //we have a transform to use as our attachTo.
+
+                if (AudioManager.Instance)
+                {
+                    AudioManager.Instance.PlaySFX("click");
+                }
                 
                 CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint,FindObjectOfType<Library>().limbs[GameManager.instance.limRewardLibraryIndex]/*NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]*/);
 

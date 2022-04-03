@@ -963,8 +963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d4f0524a2a7544a996cd551a6ed410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BattleMusic: {fileID: 0}
-  MenuMusic: {fileID: 0}
+  BattleMusic: {fileID: 1231335493}
+  MenuMusic: {fileID: 1231335496}
 --- !u!4 &1231335495
 Transform:
   m_ObjectHideFlags: 0

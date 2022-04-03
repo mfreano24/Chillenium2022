@@ -26,7 +26,7 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    bool inBattle = true;
+    bool inBattle = false;
 
     private void Start()
     {
