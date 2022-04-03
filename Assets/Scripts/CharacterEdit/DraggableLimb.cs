@@ -30,16 +30,19 @@ public class DraggableLimb : MonoBehaviour
         Gizmos.color = Color.cyan;
 
         Gizmos.DrawSphere(mousePos, 0.5f);
-        
+
     }
 
     private void Start()
     {
         originPosition = transform.position;
-        if (GameManager.instance != null && GameManager.instance.limbRewardPrefab != null) 
-        {
-            associatedPrefab = GameManager.instance.limbRewardPrefab;
-        }
+        if (GameManager.instance != null)
+            if (GameManager.instance.limbRewardPrefab != null)
+            {
+                {
+                    associatedPrefab = GameManager.instance.limbRewardPrefab;
+                }
+            }
     }
 
     private void Update()
@@ -62,7 +65,7 @@ public class DraggableLimb : MonoBehaviour
 
             //Cursor.visible = true;
 
-            if(currSelectedAttachmentPoint != null)
+            if (currSelectedAttachmentPoint != null)
             {
                 //we have a transform to use as our attachTo.
                 CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint, associatedPrefab);
@@ -76,7 +79,7 @@ public class DraggableLimb : MonoBehaviour
                 transform.position = originPosition; //this is the "nowhere" case
             }
 
-            
+
         }
 
 

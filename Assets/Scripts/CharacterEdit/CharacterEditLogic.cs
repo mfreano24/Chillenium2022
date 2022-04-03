@@ -144,7 +144,7 @@ public class CharacterEditLogic : MonoBehaviour
     public void SelectYes()
     {
         ConfirmSelection = true;
-        //GameManager.instance.GotoCombat();
+        GameManager.instance.GotoCombat();
 
     }
     public void SelectNo()
