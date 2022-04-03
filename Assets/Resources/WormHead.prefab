@@ -236,7 +236,7 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 1545883281687830744}
   bodyPartAbility:
     name: Worm
-    partIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    partIcon: {fileID: 21300000, guid: bfdfb3be299eb5b4c80ed99e4c5aec22, type: 3}
     maxChargeTime: 10
     currentChargeTime: 0
     isPlayer: 0

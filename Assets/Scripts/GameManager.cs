@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             switch (gameState)
             {
                 case GameState.PreCombat:
-                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    if (SceneManager.GetActiveScene().name == "CombatScene")
                     {
 
                         if (sourcesInScene() == 2)
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         gameState = GameState.LostGame;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("LoseScreen");
     }
 
     internal void WinRound()
@@ -161,16 +161,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         gameState = GameState.CharacterScreen;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("CharacterEditBuild");
     }
 
     internal void GotoCombatNoPlayer()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("CombatScene");
         gameState = GameState.PreCombat;
     }
 
-    internal void GotoCombat()
+    internal void GotoCombat("CombatSceme")
     {
         SceneManager.LoadScene(0);
         gameState = GameState.PreCombat;

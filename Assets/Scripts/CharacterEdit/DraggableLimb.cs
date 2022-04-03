@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.UI;
 public class DraggableLimb : MonoBehaviour
 {
 
@@ -25,6 +25,7 @@ public class DraggableLimb : MonoBehaviour
 
     bool newLimbFound = false;
 
+    public Image cursor;
 
 
     private void OnDrawGizmos()
@@ -38,6 +39,7 @@ public class DraggableLimb : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
+        cursor.sprite = FindObjectOfType<Library>().limbs[GameManager.instance.limRewardLibraryIndex].GetComponent<BodyPart>().bodyPartAbility.partIcon;
     }
 
     private void Update()
@@ -66,7 +68,7 @@ public class DraggableLimb : MonoBehaviour
                 //we have a transform to use as our attachTo.
                 
                 CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint,FindObjectOfType<Library>().limbs[GameManager.instance.limRewardLibraryIndex]/*NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]*/);
-
+                
                 CharacterEditLogic.Instance.CameraSnapToFit();
 
                 CharacterEditLogic.Instance.ProceedCallback(gameObject);

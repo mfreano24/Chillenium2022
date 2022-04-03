@@ -26,7 +26,7 @@ public class GiftSelectChoice : MonoBehaviour
     }
     public void Populate(BodyPart bodyPart)
     {
-        textDispaly.text = bodyPart.bodyPartAbility.name;
+        textDispaly.text =  bodyPart.bodyPartAbility.name.ToUpper();
         //StaticValues.limbPrefabName = bodyPart.selfPrefab.name;
         //giftChoice = bodyPart.selfPrefab;
         libraryIndex = bodyPart.libraryIndex;
