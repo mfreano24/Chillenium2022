@@ -170,9 +170,9 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PreCombat;
     }
 
-    internal void GotoCombat("CombatScene")
+    internal void GotoCombat()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("CombatScene");
         gameState = GameState.PreCombat;
 
     }
