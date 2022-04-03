@@ -41,7 +41,7 @@ public class BodyPartAbility
     {
         if (currentChargeTime < maxChargeTime)
         {
-            currentChargeTime += Time.deltaTime * GameManager.instance.gameSpeed * (1f + speedMod);
+            currentChargeTime += Time.deltaTime * (1f + speedMod);
             currentChargeTime = Mathf.Clamp(currentChargeTime, 0, maxChargeTime);
         }
     }
