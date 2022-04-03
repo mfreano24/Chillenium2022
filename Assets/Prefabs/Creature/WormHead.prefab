@@ -254,6 +254,7 @@ MonoBehaviour:
       valueOne: 2
       valueTwo: 0
       valueThree: 0
+  selfPrefab: {fileID: 8760651359370933835}
 --- !u!95 &1556497514
 Animator:
   serializedVersion: 3

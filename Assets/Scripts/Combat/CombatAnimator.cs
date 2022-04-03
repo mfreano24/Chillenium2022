@@ -9,14 +9,14 @@ public class CombatAnimator : MonoBehaviour
     public Animator monsterAnimatorTwo;
     public Animator transitionAnimator;
     public Animator combatUIFadeIn;
+    public Animator cameraAnimator;
+    public Animator shopAnimator;
 
-
-
-    public void CallIntroAnimations() 
+    public void CallIntroAnimations()
     {
         StartCoroutine(IntroAnimations());
     }
-    public IEnumerator IntroAnimations() 
+    public IEnumerator IntroAnimations()
     {
         GameManager.playerSource.transform.parent = monsterAnimatorOne.transform;
         GameManager.enemySource.transform.parent = monsterAnimatorTwo.transform;
@@ -24,7 +24,7 @@ public class CombatAnimator : MonoBehaviour
         GameManager.enemySource.transform.localPosition = Vector3.zero;
         GameManager.playerSource.transform.localRotation = Quaternion.identity;
         GameManager.enemySource.transform.localRotation = Quaternion.identity;
-        monsterAnimatorOne.SetInteger("ChooseIntro",Random.Range(1, 6));
+        monsterAnimatorOne.SetInteger("ChooseIntro", Random.Range(1, 6));
         monsterAnimatorTwo.SetInteger("ChooseIntro", Random.Range(1, 6));
         transitionAnimator.SetInteger("ChooseIntro", 1);
         yield return new WaitForSeconds(3.5f);
@@ -39,7 +39,7 @@ public class CombatAnimator : MonoBehaviour
 
 
     }
-    IEnumerator LossAnimations() 
+    IEnumerator LossAnimations()
     {
         monsterAnimatorOne.SetTrigger("Kill");
         combatUIFadeIn.SetTrigger("FadeOut");
@@ -54,14 +54,27 @@ public class CombatAnimator : MonoBehaviour
         StartCoroutine(WinAnimations());
     }
 
-    IEnumerator WinAnimations() 
+    internal void CallFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator WinAnimations()
     {
         monsterAnimatorTwo.SetTrigger("Kill");
         combatUIFadeIn.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(.2f);
-        transitionAnimator.SetTrigger("FadeOut");
+        cameraAnimator.SetTrigger("DeathCam");
+        yield return new WaitForSeconds(1.4f);
+        shopAnimator.SetTrigger("OpenShop");
 
 
         yield return null;
     }
+
+    IEnumerator FadeOut()
+    {
+        transitionAnimator.SetTrigger("FadeOut");
+        yield return null;
+    }
+
 }

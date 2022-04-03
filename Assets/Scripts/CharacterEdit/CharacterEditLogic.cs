@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterEditLogic : MonoBehaviour
 {
@@ -143,6 +144,7 @@ public class CharacterEditLogic : MonoBehaviour
     public void SelectYes()
     {
         ConfirmSelection = true;
+        //GameManager.instance.GotoCombat();
 
     }
     public void SelectNo()

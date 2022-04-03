@@ -37,6 +37,7 @@ public class BodyPart : MonoBehaviour
 
     //Stored Ability
     public BodyPartAbility bodyPartAbility;
+    public GameObject selfPrefab;
     public CreatureManager Creature
     {
         get
@@ -114,8 +115,6 @@ public class BodyPart : MonoBehaviour
 
     }
 
-
-
     private void Start()
     {
         nameToPart = new Dictionary<string, BodyPart>();
@@ -139,11 +138,11 @@ public class BodyPart : MonoBehaviour
                 GameManager.enemySource = this;
             }
         }
-
-        if (!isPlayer && ! isSource) 
+        if (!isPlayer && !isSource)
         {
-            GameManager.enemySource.Creature.AddNewPartToCollection(this);
+            //GameManager.enemySource.Creature.AddNewPartToCollection(this);
         }
+
 
     }
 

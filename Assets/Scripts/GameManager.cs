@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState;
     bool stateProgressing = false;
+
+    public GameObject limbRewardPrefab;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -45,8 +48,7 @@ public class GameManager : MonoBehaviour
             switch (gameState)
             {
                 case GameState.PreCombat:
-                    StartCoroutine( StartCombat());
-                    
+                    StartCoroutine(StartCombat());
                     break;
                 case GameState.Combat:
                     break;
@@ -64,16 +66,22 @@ public class GameManager : MonoBehaviour
   IEnumerator StartCombat() 
     {
 
-        combatStart?.Invoke();
         stateProgressing = true;
         gameSpeed = 0;
-
         //Play Intro CutScene;
         FindObjectOfType<CombatAnimator>().CallIntroAnimations();
+        CombatActorManager[] combatActorManagers = FindObjectsOfType<CombatActorManager>();
+        combatActorManagers[0].Init();
+        combatActorManagers[1].Init();
+
+        //foreach (CombatActorManager combatActorManager in combatActorManagers) 
+        //{
+        //    combatActorManager.Init();
+        //}
         yield return new WaitForSeconds(5.5f);
 
 
-        gameSpeed = 2;
+        gameSpeed = 1;
         stateProgressing = false;
         gameState = GameState.Combat;
         yield return null;
@@ -107,5 +115,27 @@ public class GameManager : MonoBehaviour
         stateProgressing = true;
 
         FindObjectOfType<CombatAnimator>().CallWinAnimations();
+    }
+
+
+    public void GoToCharacterBuildScreen() 
+    {
+        StartCoroutine(GoToBuildScreen(2.5f));
+        FindObjectOfType<CombatAnimator>().CallFadeOut();
+    }
+
+    IEnumerator GoToBuildScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameState = GameState.CharacterScreen;
+        SceneManager.LoadScene(2);
+    }
+
+    internal void GotoCombat()
+    {
+        SceneManager.LoadScene(0);
+        gameState = GameState.PreCombat;
+        stateProgressing = true;
+        throw new NotImplementedException();
     }
 }

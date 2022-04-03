@@ -36,6 +36,10 @@ public class DraggableLimb : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
+        if (GameManager.instance != null && GameManager.instance.limbRewardPrefab != null) 
+        {
+            associatedPrefab = GameManager.instance.limbRewardPrefab;
+        }
     }
 
     private void Update()

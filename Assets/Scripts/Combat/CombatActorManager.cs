@@ -28,11 +28,11 @@ public class CombatActorManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.combatStart += Init;
+        //GameManager.combatStart += Init;
     }
 
     // Start is called before the first frame update
-    void Init()
+    public void Init()
     {
         if (isPlayer)
         {
@@ -40,8 +40,8 @@ public class CombatActorManager : MonoBehaviour
             HealthBarDirectory.instance.playerHealthBar.creature = this;
             //Load body parts
             bodyPartAbilities = new List<BodyPartAbility>();
-            
-            foreach (BodyPart bodypart in GameManager.playerSource.Creature.parts) 
+
+            foreach (BodyPart bodypart in GameManager.playerSource.Creature.parts)
             {
                 bodyPartAbilities.Add(bodypart.bodyPartAbility);
             }
@@ -59,16 +59,20 @@ public class CombatActorManager : MonoBehaviour
 
             HealthBarDirectory.instance.enemyHealthBar.creature = this;
 
-            foreach (BodyPart bodypart in GameManager.enemySource.Creature.parts)
+            BodyPart[] bodyParts = FindObjectsOfType<BodyPart>();
+            foreach (BodyPart bodyPart in bodyParts)
             {
-                bodyPartAbilities.Add(bodypart.bodyPartAbility);
+                if (!bodyPart.isPlayer)
+                {
+                    bodyPartAbilities.Add(bodyPart.bodyPartAbility);
+                }
             }
-            
+
             SetAIAbility();
             nextAction = new int();
-            
+
         }
-       
+
         actualHealth = maxHealth;
         displayHealth = actualHealth;
         isInitialized = true;
@@ -86,6 +90,15 @@ public class CombatActorManager : MonoBehaviour
             }
             if (!isPlayer)
             {
+
+                foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
+                {
+                    if (bodyPartAbility != nextAbility)
+                    {
+                        bodyPartAbility.currentChargeTime = Mathf.Min(bodyPartAbility.currentChargeTime, bodyPartAbility.maxChargeTime * .8f);
+                    }
+
+                }
                 if (nextAbility != null)
                 {
                     if (nextAbility.IsCharged())
@@ -101,7 +114,7 @@ public class CombatActorManager : MonoBehaviour
 
     private void CheckDeathStatus()
     {
-        if (actualHealth == 0 && !isDead) 
+        if (actualHealth == 0 && !isDead)
         {
             healthAnimationSpeed *= 4;
             if (isPlayer)
@@ -110,11 +123,11 @@ public class CombatActorManager : MonoBehaviour
                 GameManager.instance.LoseGame();
 
             }
-            else 
+            else
             {
 
                 GameManager.instance.WinRound();
-            
+
             }
             isDead = true;
         }
@@ -185,7 +198,7 @@ public class CombatActorManager : MonoBehaviour
     internal void Damage(float damage)
     {
 
-        if (parryActive > 0) 
+        if (parryActive > 0)
         {
             damage = 0;
         }
@@ -203,7 +216,7 @@ public class CombatActorManager : MonoBehaviour
                 damageToDo = -actualArmor;
                 actualArmor = 0;
             }
-            else 
+            else
             {
                 damageToDo = 0;
             }
@@ -213,7 +226,7 @@ public class CombatActorManager : MonoBehaviour
         actualHealth -= (damageToDo);
         actualHealth = Mathf.Clamp(actualHealth, 0, maxHealth);
     }
-    internal void AddArmor(float armor) 
+    internal void AddArmor(float armor)
     {
         actualArmor += armor;
         actualArmor = Mathf.Clamp(actualArmor, 0, maxHealth);
@@ -226,7 +239,7 @@ public class CombatActorManager : MonoBehaviour
     public void CallSpeedModAdjust(float speedMod, float adjustTime)
     {
 
-        StartCoroutine(SpeedModeAdjust(speedMod,adjustTime));
+        StartCoroutine(SpeedModeAdjust(speedMod, adjustTime));
 
     }
 
@@ -251,12 +264,12 @@ public class CombatActorManager : MonoBehaviour
 
     }
 
-    IEnumerator SpeedModeAdjust(float speedMod, float adjustTime) 
+    IEnumerator SpeedModeAdjust(float speedMod, float adjustTime)
     {
         chargeSpeedMod += speedMod;
         yield return new WaitForSeconds(adjustTime);
         chargeSpeedMod -= speedMod;
-    
+
     }
 
     IEnumerator DamageOverTime(float damage, float damageInterval, float damageTicks)
