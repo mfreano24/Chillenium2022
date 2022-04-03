@@ -46,7 +46,7 @@ public class DraggableLimb : MonoBehaviour
         {
             beingHeld = true;
 
-            Cursor.visible = false;
+            //Cursor.visible = false;
         }
 
 
@@ -54,7 +54,7 @@ public class DraggableLimb : MonoBehaviour
         {
             beingHeld = false;
 
-            Cursor.visible = true;
+            //Cursor.visible = true;
 
             if(currSelectedAttachmentPoint != null)
             {
