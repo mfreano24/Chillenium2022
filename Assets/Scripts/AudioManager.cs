@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
         }
 
         m_instance = this;
+
+        DontDestroyOnLoad(this);
     }
 
     public List<Sound> sounds;
