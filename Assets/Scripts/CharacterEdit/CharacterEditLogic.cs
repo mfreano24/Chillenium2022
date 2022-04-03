@@ -118,7 +118,7 @@ public class CharacterEditLogic : MonoBehaviour
 
         float adjust = Mathf.Max(xSize, ySize);
 
-        Camera.main.orthographicSize = adjust;
+        Camera.main.orthographicSize = 8;
     }
 
     public void ProceedCallback(GameObject limbObj)
