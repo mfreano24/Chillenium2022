@@ -27,10 +27,11 @@ public class GiftSelectChoice : MonoBehaviour
         giftChoice = bodyPart.selfPrefab;
     }
 
-    public void AcceptGift() 
+    public void AcceptGift()
     {
         GameManager.instance.limbRewardPrefab = giftChoice;
-
+        GameManager.playerSource.gameObject.transform.parent = null;
+        DontDestroyOnLoad(GameManager.playerSource.gameObject);
         Debug.Log(giftChoice.name);
         GameManager.instance.GoToCharacterBuildScreen();
     }

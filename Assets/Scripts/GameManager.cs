@@ -31,13 +31,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.Log("already a gamemanager in here, deleting this one!");
             Destroy(this);
         }
-        instance = this;
-        DontDestroyOnLoad(this);
+        else 
+        {
+
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+
     }
 
     // Update is called once per frame

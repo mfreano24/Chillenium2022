@@ -4,6 +4,8 @@ using UnityEngine;
 public class BodyPart : MonoBehaviour
 {
     //public bool isBase; //this can be used to determine if this body part is allowed to have attachments to it.
+    public static BodyPart player;
+    
     public bool isSource;
     public bool isPlayer;
 
@@ -115,6 +117,14 @@ public class BodyPart : MonoBehaviour
 
     }
 
+
+    private void Awake()
+    {
+        if (GameManager.playerSource != null && GameManager.playerSource != this)
+        {
+            DestroyImmediate(this);
+        }
+    }
     private void Start()
     {
         nameToPart = new Dictionary<string, BodyPart>();
@@ -131,7 +141,17 @@ public class BodyPart : MonoBehaviour
 
             if (isPlayer)
             {
-                GameManager.playerSource = this;
+
+                if (player == null) 
+                {
+                    GameManager.playerSource = this;
+                    player = this;
+                    DontDestroyOnLoad(this);
+                }else
+                {
+                    Destroy(this);
+                }
+
             }
             else
             {
@@ -146,6 +166,9 @@ public class BodyPart : MonoBehaviour
 
     }
 
+
+
+    
     void InitializeNameToPart()
     {
         nameToPart.Add("head", head);
@@ -175,7 +198,10 @@ public class BodyPart : MonoBehaviour
 
     private void Update()
     {
-
+        if (BodyPart.player == this) 
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 
     public void AttachNewBodyPart(Transform attachTo, BodyPart newPart)
