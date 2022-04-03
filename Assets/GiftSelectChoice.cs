@@ -10,6 +10,9 @@ public class GiftSelectChoice : MonoBehaviour
     GameObject giftChoice;
     BodyPart bodyPart;
     int libraryIndex;
+    public Image mainImage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class GiftSelectChoice : MonoBehaviour
         //StaticValues.limbPrefabName = bodyPart.selfPrefab.name;
         //giftChoice = bodyPart.selfPrefab;
         libraryIndex = bodyPart.libraryIndex;
+        mainImage.sprite = bodyPart.bodyPartAbility.partIcon;
         this.bodyPart = bodyPart;
     }
 

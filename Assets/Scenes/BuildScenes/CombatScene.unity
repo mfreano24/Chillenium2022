@@ -2692,7 +2692,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655176037}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2945,6 +2945,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 705083810}
     m_Modifications:
+    - target: {fileID: 1107677775995031258, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
+      propertyPath: mainImage
+      value: 
+      objectReference: {fileID: 1820274054}
     - target: {fileID: 8406712461892066893, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3049,6 +3053,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8406712461892066894, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
   m_PrefabInstance: {fileID: 1820274049}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820274054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8406712461892066891, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
+  m_PrefabInstance: {fileID: 1820274049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820274051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1890811138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3276,6 +3291,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8406712461892066893, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
   m_PrefabInstance: {fileID: 8406712463750177879}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1900067357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8406712461892066891, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
+  m_PrefabInstance: {fileID: 8406712463750177879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900067353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1944591322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +3876,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 705083810}
     m_Modifications:
+    - target: {fileID: 1107677775995031258, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
+      propertyPath: mainImage
+      value: 
+      objectReference: {fileID: 1900067357}
     - target: {fileID: 8406712461892066893, guid: e8f214d64db6cb94c828d88cf3a599dc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
