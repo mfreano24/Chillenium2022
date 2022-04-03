@@ -1865,10 +1865,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 5557687573724475455, guid: 756966de046a14149961032bafbbc6a2, type: 3}
-  - {fileID: 6633782981661767563, guid: dd4f78778e087d74e86d37d68ebc957b, type: 3}
   - {fileID: 8955979184558708417, guid: 4afd3847884f8ba489ba945ff667ee92, type: 3}
-  - {fileID: 8167518649644691232, guid: 5ff39740bb19a3a4ab3ce68eb661eff3, type: 3}
+  - {fileID: 1037220126674441023, guid: 583a3c9689303e64b96c85cec1f0732c, type: 3}
+  - {fileID: 1037220126674441023, guid: 583a3c9689303e64b96c85cec1f0732c, type: 3}
+  - {fileID: 7485203648527815511, guid: ea2d863476ff8234eb28dc1aee1acaca, type: 3}
+  - {fileID: 7668714774468140688, guid: 86c1ecc2158a0794db3ca45032affc71, type: 3}
+  - {fileID: 7485203648527815511, guid: ea2d863476ff8234eb28dc1aee1acaca, type: 3}
+  - {fileID: 4700141694276913577, guid: c9df523e92adc0e4a962488f655a53b1, type: 3}
   - {fileID: 7668714774468140688, guid: 86c1ecc2158a0794db3ca45032affc71, type: 3}
 --- !u!4 &1387045466
 Transform:
@@ -3124,7 +3127,7 @@ PrefabInstance:
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.partIcon
       value: 
-      objectReference: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+      objectReference: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.maxChargeTime
       value: 2
@@ -3152,7 +3155,7 @@ PrefabInstance:
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.abilityList.Array.data[0].actionIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 56acafb150fc22b458a882f6254fd5cf, type: 3}
+      objectReference: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.abilityList.Array.data[1].actionIcon
       value: 

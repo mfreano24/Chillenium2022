@@ -18,11 +18,20 @@ public class CombatAnimator : MonoBehaviour
     }
     public IEnumerator IntroAnimations()
     {
+
         GameManager.playerSource.transform.parent = monsterAnimatorOne.transform;
+        
+        Debug.Log("Here goes");
+        Debug.Log(GameManager.enemySource.name);
         GameManager.enemySource.transform.parent = monsterAnimatorTwo.transform;
+        Debug.Log("Nothing");
+        
         GameManager.playerSource.transform.localPosition = Vector3.zero;
+
         GameManager.enemySource.transform.localPosition = Vector3.zero;
+
         GameManager.playerSource.transform.localRotation = Quaternion.identity;
+
         GameManager.enemySource.transform.localRotation = Quaternion.identity;
         monsterAnimatorOne.SetInteger("ChooseIntro", Random.Range(1, 6));
         monsterAnimatorTwo.SetInteger("ChooseIntro", Random.Range(1, 6));

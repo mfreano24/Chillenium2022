@@ -630,7 +630,7 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 6926910677490395725}
   bodyPartAbility:
     name: LizardBody
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+    partIcon: {fileID: 21300000, guid: cc2a467491bf1c84089d1a5c3910b679, type: 3}
     maxChargeTime: 5
     currentChargeTime: 0
     isPlayer: 0
@@ -646,8 +646,8 @@ MonoBehaviour:
         abilityList: []
       isPlayerOwned: 0
       actionType: 5
-      valueOne: 10
-      valueTwo: 0
+      valueOne: 0.9
+      valueTwo: 1
       valueThree: 0
   selfPrefab: {fileID: 6926910679164472696}
 --- !u!1 &7391041055127687925

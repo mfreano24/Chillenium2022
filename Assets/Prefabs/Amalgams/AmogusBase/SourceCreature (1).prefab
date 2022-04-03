@@ -601,11 +601,25 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: Mogus Spawn
-    partIcon: {fileID: 0}
+    partIcon: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
     maxChargeTime: 0
     currentChargeTime: 0
     isPlayer: 0
-    abilityList: []
+    abilityList:
+    - name: 
+      actionIcon: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
+      parentAbility:
+        name: 
+        partIcon: {fileID: 0}
+        maxChargeTime: 0
+        currentChargeTime: 0
+        isPlayer: 0
+        abilityList: []
+      isPlayerOwned: 0
+      actionType: 0
+      valueOne: 1
+      valueTwo: 0
+      valueThree: 0
   selfPrefab: {fileID: 0}
 --- !u!114 &2074159675496527820
 MonoBehaviour:

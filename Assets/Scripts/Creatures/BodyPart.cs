@@ -139,7 +139,7 @@ public class BodyPart : MonoBehaviour
         {
             creature = GetComponent<CreatureManager>();
             depth = 0;
-            creature.parts.Add(this);
+            //creature.parts.Add(this);
 
             if (isPlayer)
             {
@@ -150,7 +150,7 @@ public class BodyPart : MonoBehaviour
                     GameManager.instance.bodyAbilities.Add(bodyPartAbility);
                     player = this;
                     DontDestroyOnLoad(gameObject);
-                    GameManager.instance.AddFunctionToSceneLoadEvent(OnSceneLoaded);
+                    //GameManager.instance.AddFunctionToSceneLoadEvent(OnSceneLoaded);
                 }
                 else if(GameManager.playerSource != this)
                 {

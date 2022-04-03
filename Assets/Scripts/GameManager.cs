@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(sourcesInScene() + " SOURCES");
         if (!stateProgressing)
         {
             switch (gameState)
@@ -59,7 +60,30 @@ public class GameManager : MonoBehaviour
                 case GameState.PreCombat:
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
-                        StartCombat();
+
+                        if (sourcesInScene() == 2)
+                        {
+
+                            try
+                            {
+
+                                CombatActorManager[] combatActorManagers = FindObjectsOfType<CombatActorManager>();
+                                combatActorManagers[0].Init();
+                                combatActorManagers[1].Init();
+                            }
+                            catch (Exception)
+                            {
+                                stateProgressing = false;
+                                throw;
+                            }
+
+                            if (player != null && enemy != null)
+                            {
+                                StartCombat();
+                            }
+                        }
+
+
                     }
                     break;
                 case GameState.Combat:
@@ -88,17 +112,7 @@ public class GameManager : MonoBehaviour
         gameSpeed = 0;
 
 
-        try
-        {
-            CombatActorManager[] combatActorManagers = FindObjectsOfType<CombatActorManager>();
-            combatActorManagers[0].Init();
-            combatActorManagers[1].Init();
-        }
-        catch (Exception)
-        {
-            stateProgressing = false;
-            throw;
-        }
+
 
 
         gameSpeed = 1;
@@ -161,5 +175,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         gameState = GameState.PreCombat;
 
+    }
+    int sourcesInScene() 
+    {
+
+        BodyPart[] bodyParts = FindObjectsOfType<BodyPart>();
+        int sourceCount = 0;
+        for (int i = 0; i < bodyParts.Length; i++) 
+        {
+
+            if (bodyParts[i].isSource) 
+            {
+                sourceCount++;            
+            }        
+        }
+
+        return sourceCount;
+    
     }
 }

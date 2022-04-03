@@ -55,8 +55,8 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: TailLiz
-    partIcon: {fileID: 21300000, guid: 56acafb150fc22b458a882f6254fd5cf, type: 3}
-    maxChargeTime: 35
+    partIcon: {fileID: 21300000, guid: 5669629fcf93664418e3d16f92bb9127, type: 3}
+    maxChargeTime: 10
     currentChargeTime: 0
     isPlayer: 0
     abilityList:

@@ -40,15 +40,20 @@ public class AttackUIElement : MonoBehaviour
 
         bodyIcon.sprite = bodyPartReference.partIcon;
 
+        Debug.Log("1");
+        Debug.Log(actionIndex);
+        Debug.Log(bodyPartReference.abilityList.Count);
         AbilityAction abilityAction = bodyPartReference.abilityList[actionIndex];
-
+        Debug.Log("2");
         if (buttonHolder.transform.childCount == 0)
         {
+            Debug.Log("3");
             GameObject instantiatedActionButton = Instantiate(attackButton, buttonHolder);
             instantiatedActionButton.GetComponent<ActionButton>().Populate(abilityAction);
         }
         else 
         {
+            Debug.Log("4");
             buttonHolder.GetChild(0).GetComponent<ActionButton>().Populate(abilityAction);
         }
 

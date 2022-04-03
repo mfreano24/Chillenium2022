@@ -177,13 +177,13 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: LizFoot
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
-    maxChargeTime: 5
+    partIcon: {fileID: 21300000, guid: 71582abbfeca5934b93f6329732857ac, type: 3}
+    maxChargeTime: 7
     currentChargeTime: 0
     isPlayer: 0
     abilityList:
     - name: Fancy Footwork
-      actionIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+      actionIcon: {fileID: 21300000, guid: cd791ccb6605c4640843a46c72bdd300, type: 3}
       parentAbility:
         name: 
         partIcon: {fileID: 0}
@@ -194,7 +194,21 @@ MonoBehaviour:
       isPlayerOwned: 0
       actionType: 4
       valueOne: 3
-      valueTwo: 0
+      valueTwo: 5
+      valueThree: 0
+    - name: Happy feet
+      actionIcon: {fileID: 21300000, guid: 15a59663071bf2840a5b5e7004bf299f, type: 3}
+      parentAbility:
+        name: 
+        partIcon: {fileID: 0}
+        maxChargeTime: 0
+        currentChargeTime: 0
+        isPlayer: 0
+        abilityList: []
+      isPlayerOwned: 0
+      actionType: 8
+      valueOne: 0.7
+      valueTwo: 8
       valueThree: 0
   selfPrefab: {fileID: 2208933278111078029}
 --- !u!1 &2792234545262676814

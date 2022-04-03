@@ -836,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSource: 1
   isPlayer: 0
+  libraryIndex: 0
   headAttachmentPoint: {fileID: 7668714772829352908}
   tailAttachmentPoint: {fileID: 7668714773924075430}
   lArmAttachmentPoint: {fileID: 7668714774383461301}
@@ -843,12 +844,27 @@ MonoBehaviour:
   lLegAttachmentPoint: {fileID: 0}
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
-    name: 
-    partIcon: {fileID: 0}
-    maxChargeTime: 0
+    name: Amongoose
+    partIcon: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
+    maxChargeTime: 15
     currentChargeTime: 0
     isPlayer: 0
-    abilityList: []
+    abilityList:
+    - name: 3
+      actionIcon: {fileID: 21300000, guid: 0128635789a89564b90c8b6676ab8455, type: 3}
+      parentAbility:
+        name: 
+        partIcon: {fileID: 0}
+        maxChargeTime: 0
+        currentChargeTime: 0
+        isPlayer: 0
+        abilityList: []
+      isPlayerOwned: 0
+      actionType: 0
+      valueOne: 15
+      valueTwo: 0
+      valueThree: 0
+  selfPrefab: {fileID: 0}
 --- !u!114 &4288699184806975843
 MonoBehaviour:
   m_ObjectHideFlags: 0

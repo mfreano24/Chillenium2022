@@ -387,7 +387,7 @@ MonoBehaviour:
   rLegAttachmentPoint: {fileID: 0}
   bodyPartAbility:
     name: BearTail
-    partIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+    partIcon: {fileID: 21300000, guid: 3b4e5ac869940754e9979c297a08962b, type: 3}
     maxChargeTime: 20
     currentChargeTime: 0
     isPlayer: 0
@@ -404,6 +404,20 @@ MonoBehaviour:
       isPlayerOwned: 0
       actionType: 7
       valueOne: 3
+      valueTwo: 0
+      valueThree: 0
+    - name: Ursa Dagger
+      actionIcon: {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
+      parentAbility:
+        name: 
+        partIcon: {fileID: 0}
+        maxChargeTime: 0
+        currentChargeTime: 0
+        isPlayer: 0
+        abilityList: []
+      isPlayerOwned: 0
+      actionType: 0
+      valueOne: 10
       valueTwo: 0
       valueThree: 0
   selfPrefab: {fileID: 6190769768766938564}
