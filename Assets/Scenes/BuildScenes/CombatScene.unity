@@ -3184,7 +3184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.abilityList.Array.data[0].valueOne
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9082965939986721157, guid: c74a3633c588bad4ba8606923b0f7200, type: 3}
       propertyPath: bodyPartAbility.abilityList.Array.data[1].valueOne
