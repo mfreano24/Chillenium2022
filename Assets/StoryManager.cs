@@ -6,6 +6,9 @@ public class StoryManager : MonoBehaviour
 {
     static StoryManager m_instance;
 
+    bool OutroLoaded = false;
+    DialogueScene currOutro;
+
     public static StoryManager Instance
     {
         get
@@ -42,5 +45,19 @@ public class StoryManager : MonoBehaviour
 
         DialogueBubble.Instance.LoadDialogue(dialogueScenes[sceneIndex].lines);
         DialogueBubble.Instance.PlayDialogue();
+
+        if(dialogueScenes[sceneIndex].nextScene != "" && dialogueScenes[sceneIndex].startScene)
+        {
+            OutroLoaded = true;
+            for(int i = 0; i < dialogueScenes.Count; i++)
+            {
+                if(dialogueScenes[i].sceneID == dialogueScenes[sceneIndex].nextScene)
+                {
+                    Debug.Log(dialogueScenes[i].sceneID + " loaded as outro");
+                    currOutro = dialogueScenes[i];
+                    break;
+                }
+            }
+        }
     }
 }

@@ -8,4 +8,6 @@ public class AttachmentPoint : MonoBehaviour
     Quaternion incomingAngle;
 
     public BodyPart myParent;
+
+    public GameObject highlight;
 }

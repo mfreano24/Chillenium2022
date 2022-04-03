@@ -6,6 +6,8 @@ public class CharacterEditLogic : MonoBehaviour
 {
     private static CharacterEditLogic m_instance;
 
+
+
     public static CharacterEditLogic Instance
     {
         get
@@ -40,12 +42,16 @@ public class CharacterEditLogic : MonoBehaviour
 
     public GameObject AreYouSureMenu;
 
+    
+
     private void Start()
     {
         src = GameObject.FindGameObjectWithTag("Source").GetComponent<CreatureManager>(); //sorry
         //im not actually that sorry
 
         AreYouSureMenu.SetActive(false);
+
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("PlacementHighlight");
     }
 
 
@@ -120,6 +126,8 @@ public class CharacterEditLogic : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         AreYouSureMenu.SetActive(true);
+
+        Camera.main.cullingMask ^= 1 << LayerMask.NameToLayer("PlacementHighlight");
 
         yield return new WaitUntil(() => ConfirmSelection);
 

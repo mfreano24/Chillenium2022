@@ -51,6 +51,16 @@ public class CreatureManager : MonoBehaviour
         
     }
 
+    public void EnableAllAttachmentHighlights()
+    {
+
+    }
+
+    public void DisableAllAttachmentHighlights()
+    {
+
+    }
+
     public List<float> GetBoundingValues()
     {
         //run this on dropping 

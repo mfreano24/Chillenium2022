@@ -729,7 +729,56 @@ MonoBehaviour:
   - sceneID: IntroEnd
     startScene: 0
     nextScene: 
-    lines: []
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: W-w-what's happening?
+    - iconID: 0
+      sfxID: 0
+      line: I have a really really uneasy feeling about this whole thing...
+    - iconID: 0
+      sfxID: 0
+      line: But, maybe it couldn't hurt to power up my little buddy here, would it?
+  - sceneID: EncounterA
+    startScene: 1
+    nextScene: EncounterAEnd
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: Another one! Let's get him, little buddy!
+  - sceneID: EncounterAEnd
+    startScene: 0
+    nextScene: 
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: We're stronger than ever!
+  - sceneID: EncounterB
+    startScene: 1
+    nextScene: 
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: Can I go home yet?
+    - iconID: 0
+      sfxID: 0
+      line: ...Actually, what's keeping me here?
+    - iconID: 0
+      sfxID: 0
+      line: ..............
+    - iconID: 0
+      sfxID: 0
+      line: N-never mind that! KILL!
+  - sceneID: EncounterC
+    startScene: 1
+    nextScene: 
+    lines:
+    - iconID: 0
+      sfxID: 0
+      line: Something about all this feels unsettling.
+    - iconID: 0
+      sfxID: 0
+      line: Though, I can't say it's not fun to be strong...
   spriteAtlas:
   - {fileID: 21300000, guid: e33ddfe89bcc2bd4791d6289c9718bb6, type: 3}
   - {fileID: 21300000, guid: 56acafb150fc22b458a882f6254fd5cf, type: 3}
