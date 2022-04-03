@@ -25,7 +25,7 @@ public class GiftSelect : MonoBehaviour
             }
         }
 
-        Debug.Log(eligibleBodyParts.Count);
+
         for (int i = 0; i < 3; i++)
         {
             if (eligibleBodyParts.Count > 0)

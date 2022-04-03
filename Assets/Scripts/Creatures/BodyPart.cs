@@ -145,6 +145,7 @@ public class BodyPart : MonoBehaviour
                 if (GameManager.playerSource == null)
                 {
                     GameManager.playerSource = this;
+                    GameManager.instance.bodyAbilities.Add(bodyPartAbility);
                     player = this;
                     DontDestroyOnLoad(gameObject);
                     GameManager.instance.AddFunctionToSceneLoadEvent(OnSceneLoaded);

@@ -11,6 +11,8 @@ public class CreatureManager : MonoBehaviour
 
     BodyPart source;
 
+
+
     public enum PartType
     {
         Torso, Head, Tail, LArm, RArm, LLeg, RLeg
@@ -73,7 +75,6 @@ public class CreatureManager : MonoBehaviour
 
         foreach(BodyPart p in parts)
         {
-            Debug.Log("PART POSITION: " + p.transform.position);
             if(p.transform.position.x < boundValues[0])
             {
                 boundValues[0] = p.transform.position.x;

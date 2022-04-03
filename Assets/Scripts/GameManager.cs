@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
@@ -13,6 +14,10 @@ public class GameManager : MonoBehaviour
     public CombatActorManager enemy;
     public static Action combatStart;
     public float gameSpeed;
+
+
+    public List<BodyPartAbility> bodyAbilities;
+
     public enum GameState
     {
         PreCombat,
@@ -24,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState gameState;
-    bool stateProgressing = false;
+    public bool stateProgressing = false;
 
     public GameObject limbRewardPrefab;
     // Start is called before the first frame update
@@ -52,7 +57,10 @@ public class GameManager : MonoBehaviour
             switch (gameState)
             {
                 case GameState.PreCombat:
-                    StartCoroutine(StartCombat());
+                    if (SceneManager.GetActiveScene().buildIndex == 0)
+                    {
+                        StartCombat();
+                    }
                     break;
                 case GameState.Combat:
                     break;
@@ -72,9 +80,10 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += delegate { pass(); };
     }
 
-    IEnumerator StartCombat()
-    {
 
+    void StartCombat()
+    {
+        FindObjectOfType<CombatAnimator>().CallIntroAnimations();
         stateProgressing = true;
         gameSpeed = 0;
 
@@ -91,21 +100,12 @@ public class GameManager : MonoBehaviour
             throw;
         }
 
-        //Play Intro CutScene;
-        FindObjectOfType<CombatAnimator>().CallIntroAnimations();
-
-
-        //foreach (CombatActorManager combatActorManager in combatActorManagers) 
-        //{
-        //    combatActorManager.Init();
-        //}
-        yield return new WaitForSeconds(5.5f);
-
 
         gameSpeed = 1;
         stateProgressing = false;
         gameState = GameState.Combat;
-        yield return null;
+
+        return;
 
     }
 
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
 
     internal void GotoCombatNoPlayer()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
         gameState = GameState.PreCombat;
     }
 

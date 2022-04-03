@@ -28,7 +28,7 @@ public class CombatActorManager : MonoBehaviour
 
     private void Awake()
     {
-        //GameManager.combatStart += Init;
+
     }
 
     // Start is called before the first frame update
@@ -41,10 +41,14 @@ public class CombatActorManager : MonoBehaviour
             //Load body parts
             bodyPartAbilities = new List<BodyPartAbility>();
 
-            foreach (BodyPart bodypart in GameManager.playerSource.Creature.parts)
-            {
-                bodyPartAbilities.Add(bodypart.bodyPartAbility);
-            }
+
+            //foreach (BodyPart bodypart in GameManager.playerSource.Creature.parts)
+            //{
+
+
+
+
+            bodyPartAbilities = GameManager.instance.bodyAbilities;
 
             foreach (BodyPartAbility bodyPartAbility in bodyPartAbilities)
             {
@@ -52,6 +56,7 @@ public class CombatActorManager : MonoBehaviour
                 bodyPartAbility.Init();
 
             }
+            Debug.Log("length Four is " + bodyPartAbilities.Count);
         }
         else
         {
@@ -76,6 +81,7 @@ public class CombatActorManager : MonoBehaviour
         actualHealth = maxHealth;
         displayHealth = actualHealth;
         isInitialized = true;
+
     }
 
     // Update is called once per frame
