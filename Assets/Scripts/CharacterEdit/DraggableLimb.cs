@@ -21,7 +21,9 @@ public class DraggableLimb : MonoBehaviour
 
     public GameObject associatedPrefab;
 
-    
+    public Transform debugAttach;
+
+
 
     private void OnDrawGizmos()
     {

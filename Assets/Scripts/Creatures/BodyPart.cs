@@ -4,10 +4,6 @@ using UnityEngine;
 public class BodyPart : MonoBehaviour
 {
     //public bool isBase; //this can be used to determine if this body part is allowed to have attachments to it.
-    
-
-
-    
     public bool isSource;
     public bool isPlayer;
 
@@ -85,17 +81,36 @@ public class BodyPart : MonoBehaviour
     {
         //draw the "attachment points" locally
         Gizmos.color = Color.green;
-
-        Gizmos.DrawWireSphere(headAttachmentPoint.position, 1f);
-        Gizmos.DrawWireSphere(tailAttachmentPoint.position, 1f);
-        Gizmos.DrawWireSphere(lArmAttachmentPoint.position, 1f);
-        Gizmos.DrawWireSphere(rArmAttachmentPoint.position, 1f);
-        if (!isSource)
+        if (headAttachmentPoint)
         {
-            Gizmos.DrawWireSphere(lLegAttachmentPoint.position, 1f);
-            Gizmos.DrawWireSphere(rLegAttachmentPoint.position, 1f);
+            Gizmos.DrawWireSphere(headAttachmentPoint.position, 0.1f);
         }
-        
+
+        if (tailAttachmentPoint)
+        {
+            Gizmos.DrawWireSphere(tailAttachmentPoint.position, 0.1f);
+        }
+
+        if (lArmAttachmentPoint)
+        {
+            Gizmos.DrawWireSphere(lArmAttachmentPoint.position, 0.1f);
+        }
+
+        if (rArmAttachmentPoint)
+        {
+            Gizmos.DrawWireSphere(rArmAttachmentPoint.position, 0.1f);
+        }
+
+        if (rLegAttachmentPoint)
+        {
+            Gizmos.DrawWireSphere(rLegAttachmentPoint.position, 0.1f);
+        }
+
+        if (lLegAttachmentPoint)
+        {
+            Gizmos.DrawWireSphere(lLegAttachmentPoint.position, 0.1f);
+        }
+
 
     }
 
