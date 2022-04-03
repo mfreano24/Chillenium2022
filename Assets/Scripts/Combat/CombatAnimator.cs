@@ -75,7 +75,6 @@ public class CombatAnimator : MonoBehaviour
     internal void CallWinAnimations()
     {
         StartCoroutine(WinAnimations());
-        AudioManager.Instance.PlaySFX("paperflutter");
     }
 
     internal void CallFadeOut()

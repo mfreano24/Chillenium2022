@@ -44,7 +44,7 @@ public class GiftSelectChoice : MonoBehaviour
 
         GameManager.instance.bodyAbilities.Add(bodyPart.bodyPartAbility);
         GameManager.instance.limRewardLibraryIndex = libraryIndex;
-
+        
         GameManager.instance.GoToCharacterBuildScreen();
     }
 }

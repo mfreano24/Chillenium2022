@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(GoToBuildScreen(2.5f));
         FindObjectOfType<CombatAnimator>().CallFadeOut();
-        AudioManager.Instance.PlaySFX("rip");
+
     }
 
     IEnumerator GoToBuildScreen(float delay)
