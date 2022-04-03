@@ -120,7 +120,7 @@ public class CombatActorManager : MonoBehaviour
 
     private void CheckDeathStatus()
     {
-        if (actualHealth == 0 && !isDead)
+        if (actualHealth <= 0 && !isDead)
         {
             healthAnimationSpeed *= 4;
             if (isPlayer)
@@ -144,7 +144,7 @@ public class CombatActorManager : MonoBehaviour
         if (displayHealth != actualHealth)
         {
             displayHealth += Mathf.Sign(actualHealth - displayHealth) * healthAnimationSpeed * Time.deltaTime;
-            if (Mathf.Abs(actualHealth - displayHealth) <= .5f)
+            if (Mathf.Abs(actualHealth - displayHealth) <= 5f)
             {
                 displayHealth = actualHealth;
             }
