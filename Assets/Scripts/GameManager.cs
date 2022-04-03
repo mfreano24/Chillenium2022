@@ -11,8 +11,19 @@ public class GameManager : MonoBehaviour
 
     public CombatActorManager player;
     public CombatActorManager enemy;
-    public static Action  combatStart;
+    public static Action combatStart;
+    public float gameSpeed;
+    public enum GameState
+    {
+        PreCombat,
+        Combat,
+        PostCombat,
+        RewardScreen,
+        CharacterScreen
+    }
 
+    public GameState gameState;
+    bool stateProgressing = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,14 +38,43 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump")) 
+        if (!stateProgressing) 
         {
-            StartCombat();
+            switch (gameState)
+            {
+                case GameState.PreCombat:
+                    StartCoroutine( StartCombat());
+                    
+                    break;
+                case GameState.Combat:
+                    break;
+                case GameState.PostCombat:
+                    break;
+                case GameState.RewardScreen:
+                    break;
+                case GameState.CharacterScreen:
+                    break;
+            }
+
         }
     }
 
-    public void StartCombat() 
+  IEnumerator StartCombat() 
     {
+
         combatStart?.Invoke();
+        stateProgressing = true;
+        gameSpeed = 0;
+
+        //Play Intro CutScene;
+        FindObjectOfType<CombatAnimator>().CallIntroAnimations();
+        yield return new WaitForSeconds(4.5f);
+
+
+        gameSpeed = 1;
+        stateProgressing = false;
+        gameState = GameState.Combat;
+        yield return null;
+
     }
 }
