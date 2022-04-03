@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/CombatScene_NoPlayer.unity
     guid: 03931d84795d36c44b1a2780dd24c475
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
+    guid: 8234842b2b337a545918e35c3d417d19
   m_configObjects: {}
