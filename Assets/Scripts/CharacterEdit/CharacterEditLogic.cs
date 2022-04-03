@@ -44,6 +44,8 @@ public class CharacterEditLogic : MonoBehaviour
 
     
 
+    
+
     private void Start()
     {
         src = GameObject.FindGameObjectWithTag("Source").GetComponent<CreatureManager>(); //sorry
@@ -92,11 +94,15 @@ public class CharacterEditLogic : MonoBehaviour
 
     public void UpdateCreature(Transform attachTo, GameObject limbPrefab)
     {
+
         //create a limb object from the prefab
         GameObject newLimbInst = Instantiate(limbPrefab);
 
         //need to get the "parent" of the attach point
-        BodyPart targetSource = attachTo.GetComponent<AttachmentPoint>().myParent;
+        AttachmentPoint ap = attachTo.GetComponent<AttachmentPoint>();
+        BodyPart targetSource = ap.myParent;
+        ap.highlight.gameObject.SetActive(false);
+        ap.gameObject.layer = 0;
         targetSource.AttachNewBodyPart(attachTo, newLimbInst.GetComponent<BodyPart>());
     }
 
