@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &82056938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6687148267261387651, guid: 91e5bb81a290b8647807434c96e0cb6f, type: 3}
+  m_PrefabInstance: {fileID: 8078370427889494840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c8da1fae987894aaeaa3aa87f31542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &157651119
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +516,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2831b05d1fd323d4f9410d15446672c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &742959268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6687148267261387651, guid: 91e5bb81a290b8647807434c96e0cb6f, type: 3}
+  m_PrefabInstance: {fileID: 565952900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c8da1fae987894aaeaa3aa87f31542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1105087158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -713,6 +735,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446701692f4981242895fd12b8388c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currOutro:
+    sceneID: 
+    startScene: 0
+    nextScene: 
+    lines: []
   dialogueScenes:
   - sceneID: IntroScene
     startScene: 1
@@ -1240,6 +1267,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 984234511366294430, guid: 90d89d6de30df9048a31963bd6ff7790, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 742959268}
+    - target: {fileID: 984234511366294430, guid: 90d89d6de30df9048a31963bd6ff7790, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 82056938}
     - target: {fileID: 4187981847047268816, guid: 90d89d6de30df9048a31963bd6ff7790, type: 3}
       propertyPath: m_Name
       value: GameManager
