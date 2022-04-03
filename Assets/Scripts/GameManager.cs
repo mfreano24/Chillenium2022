@@ -77,11 +77,23 @@ public class GameManager : MonoBehaviour
 
         stateProgressing = true;
         gameSpeed = 0;
+
+
+        try
+        {
+            CombatActorManager[] combatActorManagers = FindObjectsOfType<CombatActorManager>();
+            combatActorManagers[0].Init();
+            combatActorManagers[1].Init();
+        }
+        catch (Exception)
+        {
+            stateProgressing = false;
+            throw;
+        }
+
         //Play Intro CutScene;
         FindObjectOfType<CombatAnimator>().CallIntroAnimations();
-        CombatActorManager[] combatActorManagers = FindObjectsOfType<CombatActorManager>();
-        combatActorManagers[0].Init();
-        combatActorManagers[1].Init();
+
 
         //foreach (CombatActorManager combatActorManager in combatActorManagers) 
         //{
@@ -99,7 +111,6 @@ public class GameManager : MonoBehaviour
 
     internal void LoseGame()
     {
-        stateProgressing = true;
         gameState = GameState.PostCombat;
         gameSpeed = 0;
 
@@ -121,7 +132,6 @@ public class GameManager : MonoBehaviour
 
         gameState = GameState.PostCombat;
         gameSpeed = 0;
-        stateProgressing = true;
 
         FindObjectOfType<CombatAnimator>().CallWinAnimations();
     }
