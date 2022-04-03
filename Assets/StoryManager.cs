@@ -7,7 +7,7 @@ public class StoryManager : MonoBehaviour
     static StoryManager m_instance;
 
     bool OutroLoaded = false;
-    DialogueScene currOutro;
+    public DialogueScene currOutro;
 
     public static StoryManager Instance
     {
