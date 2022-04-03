@@ -32,5 +32,22 @@ public class CombatAnimator : MonoBehaviour
         yield return null;
     }
 
+    internal void CallLossAnimations()
+    {
 
+        StartCoroutine(LossAnimations());
+
+
+    }
+    IEnumerator LossAnimations() 
+    {
+        monsterAnimatorOne.SetTrigger("Kill");
+        combatUIFadeIn.SetTrigger("FadeOut");
+        yield return null;
+    }
+
+    internal void CallWinAnimations()
+    {
+        throw new System.NotImplementedException();
+    }
 }

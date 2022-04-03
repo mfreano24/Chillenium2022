@@ -77,4 +77,24 @@ public class GameManager : MonoBehaviour
         yield return null;
 
     }
+
+    internal void LoseGame()
+    {
+        gameState = GameState.PostCombat;
+        gameSpeed = 0;
+        stateProgressing = true;
+
+        FindObjectOfType<CombatAnimator>().CallLossAnimations();
+
+    }
+
+    internal void WinRound()
+    {
+
+        gameState = GameState.PostCombat;
+        gameSpeed = 0;
+        stateProgressing = true;
+
+        FindObjectOfType<CombatAnimator>().CallWinAnimations();
+    }
 }

@@ -94,6 +94,26 @@ public class CombatActorManager : MonoBehaviour
                 }
             }
             UpdateHealth();
+            CheckDeathStatus();
+        }
+    }
+
+    private void CheckDeathStatus()
+    {
+        if (actualHealth == 0) 
+        {
+            if (isPlayer)
+            {
+
+                GameManager.instance.LoseGame();
+
+            }
+            else 
+            {
+
+                GameManager.instance.WinRound();
+            
+            }
         }
     }
 
@@ -108,6 +128,11 @@ public class CombatActorManager : MonoBehaviour
             }
         }
     }
+
+
+
+
+
 
     BodyPartAbility FindClosestAbility()
     {
