@@ -24,6 +24,7 @@ public class CombatActorManager : MonoBehaviour
     float chargeSpeedMod;
 
     bool isInitialized;
+    private bool isDead;
 
     private void Awake()
     {
@@ -100,8 +101,9 @@ public class CombatActorManager : MonoBehaviour
 
     private void CheckDeathStatus()
     {
-        if (actualHealth == 0) 
+        if (actualHealth == 0 && !isDead) 
         {
+            healthAnimationSpeed *= 4;
             if (isPlayer)
             {
 
@@ -114,6 +116,7 @@ public class CombatActorManager : MonoBehaviour
                 GameManager.instance.WinRound();
             
             }
+            isDead = true;
         }
     }
 

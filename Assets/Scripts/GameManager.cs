@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -19,7 +20,8 @@ public class GameManager : MonoBehaviour
         Combat,
         PostCombat,
         RewardScreen,
-        CharacterScreen
+        CharacterScreen,
+        LostGame
     }
 
     public GameState gameState;
@@ -68,10 +70,10 @@ public class GameManager : MonoBehaviour
 
         //Play Intro CutScene;
         FindObjectOfType<CombatAnimator>().CallIntroAnimations();
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(5.5f);
 
 
-        gameSpeed = 1;
+        gameSpeed = 2;
         stateProgressing = false;
         gameState = GameState.Combat;
         yield return null;
@@ -80,12 +82,21 @@ public class GameManager : MonoBehaviour
 
     internal void LoseGame()
     {
+        stateProgressing = true;
         gameState = GameState.PostCombat;
         gameSpeed = 0;
-        stateProgressing = true;
 
         FindObjectOfType<CombatAnimator>().CallLossAnimations();
 
+
+        StartCoroutine(GoToLoseScreen(2.5f));
+    }
+
+    IEnumerator GoToLoseScreen(float delay) 
+    {
+        yield return new WaitForSeconds(delay);
+        gameState = GameState.LostGame;
+        SceneManager.LoadScene(1);
     }
 
     internal void WinRound()

@@ -134,7 +134,6 @@ public class AbilityAction
     void DamageEnemy(float damage)
     {
         CombatActorManager target = PickTarget(ActionTarget.Enemy);
-        Debug.Log(target.name + " is dealt " + damage);
         target.Damage(damage);
 
     }

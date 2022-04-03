@@ -27,7 +27,7 @@ public class CombatAnimator : MonoBehaviour
         monsterAnimatorOne.SetInteger("ChooseIntro",Random.Range(1, 6));
         monsterAnimatorTwo.SetInteger("ChooseIntro", Random.Range(1, 6));
         transitionAnimator.SetInteger("ChooseIntro", 1);
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(3.5f);
         combatUIFadeIn.SetTrigger("FadeIn");
         yield return null;
     }
@@ -43,11 +43,25 @@ public class CombatAnimator : MonoBehaviour
     {
         monsterAnimatorOne.SetTrigger("Kill");
         combatUIFadeIn.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.2f);
+        transitionAnimator.SetTrigger("FadeOut");
+
         yield return null;
     }
 
     internal void CallWinAnimations()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(WinAnimations());
+    }
+
+    IEnumerator WinAnimations() 
+    {
+        monsterAnimatorTwo.SetTrigger("Kill");
+        combatUIFadeIn.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.2f);
+        transitionAnimator.SetTrigger("FadeOut");
+
+
+        yield return null;
     }
 }
