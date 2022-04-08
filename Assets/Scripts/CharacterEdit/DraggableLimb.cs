@@ -74,7 +74,7 @@ public class DraggableLimb : MonoBehaviour
                 
                 CharacterEditLogic.Instance.UpdateCreature(currSelectedAttachmentPoint,FindObjectOfType<Library>().limbs[GameManager.instance.limRewardLibraryIndex]/*NameToPrefabLibrary.Instance.prefabs[StaticValues.limbPrefabName]*/);
                 
-                CharacterEditLogic.Instance.CameraSnapToFit();
+                //CharacterEditLogic.Instance.CameraSnapToFit();
 
                 CharacterEditLogic.Instance.ProceedCallback(gameObject);
             }

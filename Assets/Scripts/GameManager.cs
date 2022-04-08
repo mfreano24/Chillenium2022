@@ -110,11 +110,6 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<CombatAnimator>().CallIntroAnimations();
         stateProgressing = true;
         gameSpeed = 0;
-
-
-
-
-
         gameSpeed = 1;
         stateProgressing = false;
         gameState = GameState.Combat;

@@ -44,7 +44,7 @@ public class CombatAnimator : MonoBehaviour
             AudioManager.Instance.PlaySFX("foot_steps");
         }
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.5f);
 
         if (introOne == 1 || introTwo == 1)
         {
@@ -85,7 +85,9 @@ public class CombatAnimator : MonoBehaviour
     IEnumerator WinAnimations()
     {
         monsterAnimatorTwo.SetTrigger("Kill");
+        Debug.Log("kill monster");
         combatUIFadeIn.SetTrigger("FadeOut");
+        Debug.Log("fadeUI");
         cameraAnimator.SetTrigger("DeathCam");
         yield return new WaitForSeconds(1.4f);
         shopAnimator.SetTrigger("OpenShop");

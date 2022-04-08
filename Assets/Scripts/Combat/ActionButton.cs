@@ -16,6 +16,10 @@ public class ActionButton : MonoBehaviour
     public void TriggerAction() 
     {
         abilityAction.UseAction();
-        AudioManager.Instance.PlaySFX("punch1");
+        if (AudioManager.Instance) 
+        {
+            AudioManager.Instance.PlaySFX("punch1");
+        }
+
     }
 }
